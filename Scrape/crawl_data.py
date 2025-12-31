@@ -9,10 +9,13 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException, NoSuchElementException
 
-# --- 1. CẤU HÌNH TÀI KHOẢN ---
-EMAIL_HUST = "xxxxxx@sis.hust.edu.vn"
-PASSWORD_HUST = "xxxx"
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
+# --- 1. CẤU HÌNH TÀI KHOẢN ---
+EMAIL_HUST = os.getenv("EMAIL_HUST")
+PASSWORD_HUST = os.getenv("PASSWORD_HUST")
 # --- 2. KHỞI TẠO CHROME DRIVER ---
 options = webdriver.ChromeOptions()
 options.add_argument("--start-maximized") # Mở rộng màn hình
